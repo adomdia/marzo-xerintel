@@ -1,26 +1,6 @@
 @include('articulo.cabecera')
 <nav class="navbar justify-content-end text-center" style="background-color: #000;">
-    <div class="container-fluid">
-    <form class="form-inline">
-
-        <!-- <select name="tipo" class="me-2" id="exampleFormControlSelect1">
-        <option>Selecciona el criterio de búsqueda:</option>
-        <option>Código</option>
-        <option>Descripción</option>
-        </select> -->
-
-
-        <!-- <input name="buscarpor" class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
-
-        
-        <button class="btn btn-outline-success  m-2" type="submit">Buscar</button>
-        <form class="d-flex" role="search"> -->
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-        <!-- </form> -->
-</div>
-</form>
+    
 </nav>
 <div class="container mt-5">
 <div class="card-group text-center" style="width: 70rem;">
