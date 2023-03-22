@@ -12,10 +12,17 @@ class ArticuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $datos['articulos'] = Articulo::paginate(5);
+        // $datos['articulos'] = Articulo::paginate(5);
+        // return view('articulo.index', $datos);
+        $buscar = $request->get('buscarpor');
+
+        $tipo = $request->get('tipo');
+
+        $datos['articulos'] = Articulo::buscarpor($tipo, $buscar)->paginate(5);
+        
         return view('articulo.index', $datos);
     }
 
