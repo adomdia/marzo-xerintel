@@ -1,5 +1,4 @@
 @include('articulo.cabecera')
-
 <nav class="navbar" style="background-color: #000;">
   <div class="container-fluid">
     <a></a>
@@ -11,6 +10,12 @@
         </select>
       <input name="buscarpor" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Buscar</button>
+      @if(Session::has('mensaje'))
+        <div class="alert alert-warning alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <p>{{ Session::get('mensaje') }}</p>
+        </div>
+      @endif
     </form>
   </div>
 </nav>

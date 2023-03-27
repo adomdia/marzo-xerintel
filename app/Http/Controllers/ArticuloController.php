@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
+
 class ArticuloController extends Controller
 {
     /**
@@ -21,7 +24,12 @@ class ArticuloController extends Controller
 
         $tipo = $request->get('tipo');
 
-        $datos['articulos'] = Articulo::buscarpor($tipo, $buscar)->paginate(5);
+        if($tipo == "Buscar por tipo"){
+            $datos['articulos'] = Articulo::paginate(10);
+            return redirect('articulo.index', $datos)->with('mensaje', 'Debes elegir una opción');
+        }
+
+        $datos['articulos'] = Articulo::buscarpor($tipo, $buscar)->paginate(10);
         
         return view('articulo.index', $datos);
     }
@@ -92,7 +100,17 @@ class ArticuloController extends Controller
     {
         //
         $datosArticulo = $request->except(['_token', '_method']);
+
+        if ($request->hasFile('Foto')){
+            $articulo=Articulo::findOrFail($id);
+            
+            Storage::delete('public/'.$articulo->Foto);
+
+            $datosArticulo['Foto']=$request->file('Foto')->store('uploads', 'public');
+        }
+
         Articulo::where('id', '=', $id)->update($datosArticulo);
+        $articulo=Articulo::findOrFail($id);
         return redirect('articulo');
     }
 
@@ -105,7 +123,12 @@ class ArticuloController extends Controller
     public function destroy($id)
     {
         //
+        $articulo=Articulo::findOrFail($id);
+
+        Storage::delete('public/'.$articulo->Foto);
         Articulo::destroy($id);
+
+
         return redirect('articulo');
     }
 }

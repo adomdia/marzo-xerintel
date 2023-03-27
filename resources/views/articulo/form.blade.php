@@ -9,25 +9,25 @@
         <label for="Codigo">
             Código:
         </label>
-        <input type="text" name="Codigo" id="codigo" require>
+        <input type="text" name="Codigo" id="codigo" value="{{ isset($articulo->codigo)?$articulo->codigo:''  }}" require>
     </div>
     <div class="form-group p-2">
         <label for="Descripcion">
             Descripción:
         </label>
-        <input type="text" name="Descripcion" id="descripcion" require>
+        <input type="text" name="Descripcion" id="descripcion" value="{{ isset($articulo->descripcion)?$articulo->descripcion:''  }}" require>
     </div>
     <div class="form-group p-2">
         <label for="Precio">
             Precio:
         </label>
-        <input type="number" name="Precio" id="precio" min="0" require>
+        <input type="number" name="Precio" id="precio" min="0" value="{{ isset($articulo->precio)?$articulo->precio:''  }}" require>
     </div>
     <div class="form-group p-2">
         <label for="Stock">
             Stock:
         </label>
-        <input type="number" name="Stock" id="stock" min="0" require>
+        <input type="number" name="Stock" id="stock" min="0" value="{{ isset($articulo->stock)?$articulo->stock:''  }}" require>
     </div>
     <div class="form-group p-2">
         <label for="Foto">
