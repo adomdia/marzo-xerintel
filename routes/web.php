@@ -23,6 +23,10 @@ use App\Http\Controllers\ArticuloController;
 
 Route::resource('/articulo', ArticuloController::class);
 
+Route::post('/updatearticulo', [App\Http\Controllers\ArticuloController::class, 'update'])->name('actulizararticulo');
+// Route::get('/index', [App\Http\Controllers\ArticuloController::class, 'index'])->name('index');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

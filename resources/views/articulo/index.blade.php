@@ -10,14 +10,17 @@
         </select>
       <input name="buscarpor" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Buscar</button>
-      @if(Session::has('mensaje'))
-        <div class="alert alert-warning alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <p>{{ Session::get('mensaje') }}</p>
-        </div>
-      @endif
     </form>
-  </div>
+    </div>
+    @if(Session::has('mensaje'))
+        <div class="container-fluid">
+            <a></a>
+                <div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                {{ Session::get('mensaje') }}
+                </div>
+        </div>
+    @endif
+
 </nav>
 
 <div class="container mt-5">

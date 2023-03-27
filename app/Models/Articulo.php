@@ -9,6 +9,11 @@ class Articulo extends Model
 {
     use HasFactory;
 
+    protected $table = 'articulos';
+
+
+    protected $fillable = ['codigo', 'descripcion', 'precio', 'stock' , 'foto'];
+
     
     public function scopeBuscarpor($query, $tipo, $buscar) {
     	if ( ($tipo) && ($buscar) ) {
